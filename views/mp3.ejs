@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <title>YTMP3</title>
+    </head>
+    <body theme="mp3">
+        <div class="top-container">
+            <form action="convert-mp3" method="post" id="form">
+                <h1><i class="fa-brands fa-youtube"></i>YT to MP3</h1>
+                <h4>Enter the video ID here</h4>
+                <div>
+                    <input type="text" name="videoID" placeholder="Video ID example: dQw4w9WgXcQ"><button id="convert-btn">Convert</button>
+                </div>
+            </form>
+        </div>
+        <div class="bottom-container">
+            <% if(typeof success != "undefined" && success) { %>
+                <div class="success">
+                    <p><%= title %></p>
+                    <a href="<%= link %>"><button id="download-btn">Download</button></a>
+                </div>
+            <% } else if(typeof success != "undefined" && !success) { %>
+                <div class="errors">
+                    <p><%= message %></p>
+                </div>
+            <% } %>
+        </div>
+    </body>
+</html>
